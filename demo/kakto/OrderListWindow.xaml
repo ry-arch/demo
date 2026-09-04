@@ -1,0 +1,75 @@
+﻿<Window x:Class="kakto.OrderListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Список заказов"
+        Height="700"
+        Width="1200">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+
+            <Button Content="Назад"
+                    Width="120"
+                    Click="Back_Click"/>
+
+            <Button x:Name="AddButton"
+                    Content="Добавить заказ"
+                    Width="150"
+                    Margin="10,0,0,0"
+                    Click="AddButton_Click"/>
+
+            <Button x:Name="DeleteButton"
+                    Content="Удалить заказ"
+                    Width="150"
+                    Margin="10,0,0,0"
+                    Click="DeleteButton_Click"/>
+
+        </StackPanel>
+
+        <ListView x:Name="OrdersList"
+                  Grid.Row="1"
+                  MouseDoubleClick="OrdersList_MouseDoubleClick">
+
+            <ListView.View>
+
+                <GridView>
+
+                    <GridViewColumn Header="ID"
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding OrderID}"/>
+
+                    <GridViewColumn Header="Артикул"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding ProductArticle}"/>
+
+                    <GridViewColumn Header="Статус"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding StatusName}"/>
+
+                    <GridViewColumn Header="Пункт выдачи"
+                                    Width="250"
+                                    DisplayMemberBinding="{Binding PickupAddress}"/>
+
+                    <GridViewColumn Header="Дата заказа"
+                                    Width="120"
+                                    DisplayMemberBinding="{Binding OrderDate}"/>
+
+                    <GridViewColumn Header="Дата выдачи"
+                                    Width="120"
+                                    DisplayMemberBinding="{Binding DeliveryDate}"/>
+
+                </GridView>
+
+            </ListView.View>
+
+        </ListView>
+
+    </Grid>
+
+</Window>
